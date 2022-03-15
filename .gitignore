@@ -14,6 +14,8 @@ ehthumbs_vista.db
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
 
+_build/
+
 # Windows Installer files
 *.cab
 *.msi
@@ -961,10 +963,13 @@ install_manifest.txt
 compile_commands.json
 CTestTestfile.cmake
 _deps
+<<<<<<< HEAD
 _build
 
 /.vscode/
 .vscode
+=======
+>>>>>>> 0f387d6cd389b783e689cba2f46d32189d0cd2fd
 
 ##### C++
 # Prerequisites
