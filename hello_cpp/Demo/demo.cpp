@@ -9,14 +9,16 @@ int main()
     string word;
     //infile.open(stdin);
     //istream& infile;
-    Hello H("First");
+    Hello H1(10);
+    Hello H2("First");
     while(cin >> word)
     {
         cout << "Entered " << word << endl;
-        H + word;
+        H1 + word;
     }    
     //infile.close();
-
-    H.printall();
+    H1.printall();
+    cout << "Print H2" << endl;
+    H2.printall();
 
 }

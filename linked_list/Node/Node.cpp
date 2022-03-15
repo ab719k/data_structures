@@ -14,8 +14,7 @@ Hello::Hello(string first)
 
 Hello::Hello(int first) 
 {
-    string first_2_string = to_string(first)
-    this->g1.push_back(first_2_string);
+    this->g1.push_back(first);
     this->count = g1.size();
 }
 

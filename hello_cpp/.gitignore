@@ -345,6 +345,20 @@ GitHub.sublime-settings
 *.tmproject
 tmtags
 
+### Cmake
+CMakeLists.txt.user
+CMakeCache.txt
+CMakeFiles
+CMakeScripts
+Testing
+Makefile
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+_deps
+
+
 ##### VisualStudioCode
 .vscode/*
 !.vscode/settings.json
@@ -947,6 +961,10 @@ install_manifest.txt
 compile_commands.json
 CTestTestfile.cmake
 _deps
+_build
+
+/.vscode/
+.vscode
 
 ##### C++
 # Prerequisites
