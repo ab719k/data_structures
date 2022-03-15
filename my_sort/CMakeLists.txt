@@ -25,4 +25,5 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 # Add executable called "my_sort" that is built from the source files
 add_executable (my_sort my_sort.cpp)
+add_executable(my_string_sort my_string_sort.cpp)
 
