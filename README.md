@@ -15,3 +15,58 @@ echo "This is the hello world example" >> ./Demo/helloDemo
 
 
 ## queue implementation
+
+## Tree implementation
+Create a Demo app, that read a file and load its content into a tree.
+```
+$ cd tree
+$ mkdir _build
+$ cd _build
+$ cmake -DCMAKE_BUILD_TYPE=Debug .. && make
+$ ./TreeDemo/treeDemo ../../data/sgb-words5.txt
+Menu
+i: Insert Name
+p: Print Tree
+f: Find a Name
+x: Exit
+Menu
+i: Insert Name
+p: Print Tree
+f: Find a Name
+x: Exit
+Enter your choice: f
+Enter name to be found : yummy
+The element with name = 'yummy' is present in the tree.
+Menu
+i: Insert Name
+p: Print Tree
+f: Find a Name
+x: Exit
+Enter your choice: i
+Enter word: amit
+ You entered amit
+Menu
+i: Insert Name
+p: Print Tree
+f: Find a Name
+x: Exit
+Enter your choice: f
+Enter name to be found : sonia
+The element with name = 'sonia' is not present in the tree.
+Menu
+i: Insert Name
+p: Print Tree
+f: Find a Name
+x: Exit
+Enter your choice: f
+Enter name to be found : amit
+The element with name = 'amit' is present in the tree.
+Menu
+i: Insert Name
+p: Print Tree
+f: Find a Name
+x: Exit 
+```
+### TreeDemo
+### Tree
+
