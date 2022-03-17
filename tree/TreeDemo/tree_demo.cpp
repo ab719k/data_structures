@@ -1,6 +1,7 @@
 #include <fstream>
 #include "tree.h"
 
+#define DBG_PRINT 0
 using namespace std;
 
 static inline void display_menu()
@@ -22,21 +23,25 @@ static inline void load_state(string filename, Tree *T)
     ifstream input(filename);
     for(string line; getline( input, line ); )
     {
-        cout << line << " ";
+        //cout << line << " ";
         T->insert(line);
     }
     cout <<endl;
+#if DBG_PRINT    
     T->print();
+#endif
 }
 
 int main(int argc, char *argv[])
 {
     string name;
     Tree T;
-    
+
+#if DBG_PRINT    
     cout << "You have entered " << argc << " arguments:" << "\n";
     for (int i = 0; i < argc; ++i)
         cout << argv[i] << "\n";
+#endif
 
     if (argc > 1) {
         load_state(argv[1], &T);

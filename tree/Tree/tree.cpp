@@ -1,5 +1,7 @@
 #include "tree.h"
 
+#define DBG_PRINT 0
+
 Tree::Tree(string first)
 {
     this->H = new Node(first);
@@ -9,31 +11,47 @@ Tree::Tree(string first)
 Node* Tree::insert(Node* p, Node *q) 
 {
     auto cmp=q->name.compare(p->name);
+#if DBG_PRINT
     cout << "Compare " << p->name << "," << q->name << " = " << cmp << endl;
+#endif   
     if(!cmp) {
+#if DBG_PRINT
         cout << "The two names are equal (" << q->name << ")" << endl;
+#endif
         p->cnt++;    
         delete q;
     }
     if (cmp < 0) {
         // Name to add is smaller than current node
+#if DBG_PRINT
         cout << "insert to left of " << p->name << endl;
+#endif
         if(p->l) {
+#if DBG_PRINT
             cout << "goint to " << p->l->name << endl;
+#endif
             p->l=insert(p->l, q);
         } else {
+#if DBG_PRINT
             cout << q->name << "<-" << p->name << endl;          
+#endif
             p->l = q;
             return p;
         }
     } 
     if (cmp > 0) {
+#if DBG_PRINT
         cout << "insert to right of " << p->name << endl;
+#endif
         if(p->r) {
+#if DBG_PRINT
             cout << "going to " << p->r->name << endl;
+#endif
             p->r=insert(p->r, q);
         } else {
+#if DBG_PRINT
             cout << p->name << "->" << q->name << endl;          
+#endif
             p->r = q;
             return p;
         }
