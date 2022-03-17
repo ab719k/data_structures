@@ -3,6 +3,9 @@
 #include <iostream>
 
 
+#ifndef _TREE_H
+#define _TREE_H
+
 using namespace std;
 
 struct Node {
@@ -43,3 +46,5 @@ public:
     // Print with default as inorder, 
     void print(int order=0);
 };
+
+#endif

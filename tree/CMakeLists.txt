@@ -23,6 +23,9 @@ endif()
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
+#add_compile_definitions(DBG_PRINT=0)
+#add_compile_definitions(OPENCV_VERSION=${OpenCV_VERSION})
+
 # Recurse into the "Tree" and "TreeDemo" subdirectories. This does not actually
 # cause another cmake executable to run. The same process will walk through
 # the project's entire directory structure.

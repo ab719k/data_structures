@@ -1,12 +1,9 @@
 #include "tree.h"
 
-#define DBG_PRINT 0
-
 Tree::Tree(string first)
 {
     this->H = new Node(first);
 }
-
 
 Node* Tree::insert(Node* p, Node *q) 
 {
