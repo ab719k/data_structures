@@ -1,4 +1,6 @@
 #include <fstream>
+#include <sstream>
+#include <string>
 #include "tree.h"
 
 #define DBG_PRINT 0
@@ -14,8 +16,6 @@ static inline void display_menu()
     cout << "Enter your choice: ";
 }
 
-#include <sstream>
-#include <string>
 
 
 static inline void load_state(string filename, Tree *T)
@@ -23,8 +23,7 @@ static inline void load_state(string filename, Tree *T)
     ifstream input(filename);
     for(string line; getline( input, line ); )
     {
-        //cout << line << " ";
-        T->insert(line);
+        T->insert(line); // cout << line << " ";
     }
     cout <<endl;
 #if DBG_PRINT    
