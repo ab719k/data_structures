@@ -5,8 +5,8 @@
 using namespace std;
 class Node {
 private:    
-    vector<int> g1;
-    int count;
+    vector<int> L;
+    class
 public:    
     Hello(vector<string> name);
     Hello(string first);
