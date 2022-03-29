@@ -1,18 +1,18 @@
 #include "hello.h"
 
-Hello::Hello(vector<string> name) 
+Node::Node(vector<string> name) 
 {
     this->g1 = name;
     this->count = g1.size();
 }
 
-Hello::Hello(string first) 
+Node::Node(string first) 
 {
     this->g1.push_back(first);
     this->count = g1.size();
 }
 
-Hello::Hello(int first) 
+Node::Node(int first) 
 {
     this->g1.push_back(first);
     this->count = g1.size();
@@ -20,25 +20,25 @@ Hello::Hello(int first)
 
 
 // Operator overloading example
-void Hello::operator =(vector<string> source) 
+void Node::operator =(vector<string> source) 
 {
     this->g1 = source;
     this->count = g1.size();
 }
 
-void Hello::operator +(string name) 
+void Node::operator +(string name) 
 {
     this->g1.push_back(name);
     this->count++;
 }
 
-void Hello::operator +=(string name) 
+void Node::operator +=(string name) 
 {
     this->g1.push_back(name);
     this->count++;
 }
 
-void Hello::printall()
+void Node::printall()
 {
     cout << "The count is " << this->count << endl;
     cout << "Output: ";
