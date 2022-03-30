@@ -66,8 +66,7 @@ void Tree::insert(string name)
     this->H = this->insert(this->H, tmp);
 }
 
-
-bool Tree::find(Node *p, string name)
+bool Tree::exists(Node *p, string name)
 {
     if(!p) {
         return false;
@@ -75,17 +74,59 @@ bool Tree::find(Node *p, string name)
     if(p->name == name) {
         return true;
     }
-    return (find(p->l,name) || find(p->r, name));
+    return (exists(p->l,name) || exists(p->r, name));
 }
 
 bool Tree::find(string name)
 {
-    return find(this->H, name);
+    return exists(H, name);
+}
+
+
+Node* Tree::delete_node(Node *p, string name) {
+    if(!p) {
+        return NULL;
+    }
+    return p;
 }
 
 void Tree::remove(string name)
 {
+    Node *t;
+    Node *q;
+    Node *p = this->H;
+    if(!p)
+        return;
 
+    auto cmp=p->name.compare(name);
+    if(!cmp) {
+        // Found the node to delete
+        //delete t;
+    }
+    if (cmp < 0) {
+        // Name to add is smaller than current node
+        if(p->l) {
+#if DBG_PRINT
+            cout << "goint to " << p->l->name << endl;
+#endif
+            p->l=insert(p->l, q);
+        } else {
+#if DBG_PRINT
+            cout << q->name << "<-" << p->name << endl;          
+#endif
+            p->l = q;
+            // Delete this?
+        }
+    } 
+    if (cmp > 0) {
+        if(p->r) {
+            p->r=insert(p->r, q);
+        } else {
+            p->r = q;
+            // Delete this
+        }
+    }
+    return ;    
 
 }
 
@@ -112,9 +153,65 @@ void Tree::inorder(Node* root)
 // Print with default as inorder, 
 void Tree::print(int order)
 {
-    //while(this->)
-    //cout << "not yet" << endl;
+#if DBG_PRINT   
     cout << order << endl;
+#endif
+    cout << "--- BEGIN TREE ---" << endl;
     print(this->H);
+    cout << "--- END TREE ---" << endl;
     return;
+}
+
+
+void Tree::remove(Node *root)
+{
+
+    return;
+}
+
+Node* Tree::get_parent(string name, bool *found)
+{
+    Node *p=this->H;
+    bool cont = true;
+    
+    *found=false;
+    if(!this->H) {
+        return NULL;
+    }
+    int cmp = name.compare(p->name);
+    if(cmp == 0) {
+        *found=true;
+        cont = false;
+        return NULL;
+    }
+
+    while(cont) {
+        if(p->l)
+        {
+
+            cmp = name.compare(p->l->name);
+            if(cmp == 0) {
+                *found=true;
+                cont = false;
+                return NULL;
+            } else if (cmp > 0) { // name  "a".compare("b") is <0 and "b".compare("a") >0
+                // name > p, i.e. search left.
+                p=p->l;
+                cont=true;
+            } else if (cmp > 0) { 
+                p=p->r;
+            }
+        }
+    }
+    
+
+    return 
+}
+
+bool Tree::is_leaf(Node *node)
+{
+    if (!(node->l) && !(node->r)) {
+       return true; 
+    }
+    return false;
 }

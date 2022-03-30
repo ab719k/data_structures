@@ -32,8 +32,13 @@ private:
     Node *H;
     Node* insert(Node* p, Node *q);
     void print(Node* p);
-    bool find(Node *p, string name);
+    bool exists(Node *p, string name);
     void inorder(Node* root);
+    void remove(Node *root);
+    Node* get_node(Node *h, string name);
+    Node* get_parent(string name, bool *found);
+    bool is_leaf(Node *node);
+    Node* delete_node(Node *p, string name);
 public:    
     Tree() {
         H = NULL;
