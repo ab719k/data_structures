@@ -31,14 +31,10 @@ int main()
 
     cout << " The array before sorting" << endl << "\t";
     printall(V);
-    //sort(V.begin(), V.size());
     sort(V.begin(), V.end(), compareString);
-    printall(V);
-    /*
-    sort(A, A+n);
     cout << "\n The array after sorting" << endl << "\t";    
-    show(A, n);
-    */
+    printall(V);
+    
     cout << "Exiting... " << endl;    
 
 

@@ -1,44 +1,45 @@
-#include "hello.h"
+#include "trie.h"
 
-Node::Node(vector<string> name) 
+Trie::Trie(vector<string> name) 
 {
     this->g1 = name;
     this->count = g1.size();
 }
 
-Node::Node(string first) 
+Trie::Trie(string first) 
 {
     this->g1.push_back(first);
     this->count = g1.size();
 }
 
-Node::Node(int first) 
+Trie::Trie(int first) 
 {
-    this->g1.push_back(first);
+    string first_2_string = to_string(first);
+    this->g1.push_back(first_2_string);
     this->count = g1.size();
 }
 
 
 // Operator overloading example
-void Node::operator =(vector<string> source) 
+void Trie::operator =(vector<string> source) 
 {
     this->g1 = source;
     this->count = g1.size();
 }
 
-void Node::operator +(string name) 
+void Trie::operator +(string name) 
 {
     this->g1.push_back(name);
     this->count++;
 }
 
-void Node::operator +=(string name) 
+void Trie::operator +=(string name) 
 {
     this->g1.push_back(name);
     this->count++;
 }
 
-void Node::printall()
+void Trie::printall()
 {
     cout << "The count is " << this->count << endl;
     cout << "Output: ";
