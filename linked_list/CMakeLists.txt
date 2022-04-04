@@ -3,7 +3,7 @@
 # to the root binary directory of the project as ${HELLO_BINARY_DIR}.
 cmake_minimum_required (VERSION 2.8.11)
 
-set(_MAJOR_VERSION "1")
+set(EXE_MAJOR_VERSION "1")
 set(EXE_MINOR_VERSION "1")
 set(EXE_PATCH_VERSION "0")
 set(EXE_VERSION_STRING "${EXE_MAJOR_VERSION}.${EXE_MINOR_VERSION}.${EXE_PATCH_VERSION}")

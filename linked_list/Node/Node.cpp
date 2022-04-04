@@ -1,41 +1,62 @@
-#include "hello.h"
+#include <vector>
+#include <string>
+#include "Node.h"
+#include <algorithm>
 
-Node::Node(vector<string> name) 
+
+
+Node::Node(vector<string> V) 
 {
-    this->g1 = name;
-    this->count = g1.size();
+    if(this->L.size() > 0) {
+        L.clear();
+        L.shrink_to_fit();
+        cout << "Capacity:" << L.capacity() << " Size:" << L.size() << endl;
+    }
+    this->L=V;
 }
 
-Node::Node(string first) 
+void Node::operator =(vector<string> V) 
 {
-    this->g1.push_back(first);
-    this->count = g1.size();
+    if(this->L.size() > 0) {
+        L.clear();
+        L.shrink_to_fit();
+        cout << "Capacity:" << L.capacity() << " Size:" << L.size() << endl;
+    }
+    this->L=V;
 }
 
-Node::Node(int first) 
+
+Node::Node(string name) 
 {
-    this->g1.push_back(first);
-    this->count = g1.size();
+    if(this->L.size() > 0) {
+        L.clear();
+        L.shrink_to_fit();
+        cout << "Capacity:" << L.capacity() << " Size:" << L.size() << endl;
+    }
+    if (std::find(L.begin(), L.end(), name) != L.end())
+    {
+        cout<< "Name " << name << " Exist";
+        // TBD Create a hashmap to increment count in subsequent release
+    } else {
+        L.push_back(name);
+    }
 }
 
 
-// Operator overloading example
-void Node::operator =(vector<string> source) 
+Node Node::operator +(string name) 
 {
-    this->g1 = source;
-    this->count = g1.size();
-}
-
-void Node::operator +(string name) 
-{
-    this->g1.push_back(name);
-    this->count++;
+    if (std::find(L.begin(), L.end(), name) != L.end())
+    {
+        cerr<< "Name " << name << " already exist";
+    } else {
+        L.push_back(name);
+    }
+    return L;
 }
 
 void Node::operator +=(string name) 
 {
-    this->g1.push_back(name);
-    this->count++;
+    L=
 }
 
 void Node::printall()
