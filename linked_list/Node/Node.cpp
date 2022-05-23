@@ -56,7 +56,7 @@ Node Node::operator +(string name)
 
 void Node::operator +=(string name) 
 {
-    L=
+    //L=
 }
 
 void Node::printall()
