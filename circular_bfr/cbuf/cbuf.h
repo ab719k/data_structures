@@ -15,13 +15,13 @@ typedef struct cbuf_s cbuf_t;
 typedef struct meas_s meas_t;
 
 struct meas_s {
-    int ts;
+    unsigned int ts;
     int meas_id;
-    int temperature;
-    int humidity;
-    int pressure;
-    int gas_resistance;
-    int scan_mode;    
+    int scan_mode;  
+    float temperature;
+    float humidity;
+    float pressure;
+    float gas_resistance;
 };
 
 #define MAX_BUFFER 1024
@@ -40,6 +40,7 @@ int cbuf_put(cbuf_t *C, meas_t *val);
 int cbuf_push(cbuf_t *C, meas_t *val);
 void cbuf_reset(cbuf_t *C);
 void cbuf_free(cbuf_t *C);
+void cbuf_output(cbuf_t *C);
 
 
 #endif
