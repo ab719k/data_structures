@@ -28,6 +28,5 @@ Example:
 3.9
 EOF
 3000
-```
 
 Explanation: with their $1000, they can buy 1000 shares at $1.00 price and sell later for $4.00 per share gaining $3000.

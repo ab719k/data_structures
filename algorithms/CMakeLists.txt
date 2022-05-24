@@ -9,14 +9,14 @@ set(EXE_PATCH_VERSION "0")
 set(EXE_VERSION_STRING "${EXE_MAJOR_VERSION}.${EXE_MINOR_VERSION}.${EXE_PATCH_VERSION}")
 
 if (CMAKE_VERSION VERSION_LESS 3.0)
-  project (circular_bfr C)
+  project (algorithms C)
   set(PROJECT_VERSION_MAJOR "${EXE_MAJOR_VERSION}")
   set(PROJECT_VERSION_MINOR "${EXE_MINOR_VERSION}")
   set(PROJECT_VERSION_PATCH"${EXE_PATCH_VERSION}")
   set(PROJECT_VERSION "${EXE_VERSION_STRING}")
 else()
   cmake_policy(SET CMP0048 NEW)
-  project (circular_bfr VERSION "${EXE_VERSION_STRING}" LANGUAGES C)
+  project (algorithms VERSION "${EXE_VERSION_STRING}" LANGUAGES C)
 endif()
 
 #specify C standard

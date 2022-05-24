@@ -1,8 +1,8 @@
 # Add executable called "helloDemo" that is built from the source files
 # "demo.cxx" and "demo_b.cxx". The extensions are automatically found.
-add_executable (stock_gain stock_gain.c)
+add_executable (subarray1 subarray1.c)
 
-SET_TARGET_PROPERTIES(cbufDemo PROPERTIES LINKER_LANGUAGE C )
+SET_TARGET_PROPERTIES(subarray1 PROPERTIES LINKER_LANGUAGE C )
 
 # Link the executable to the Hello library. Since the Hello library has
 # public include directories we will use those link directories when building
