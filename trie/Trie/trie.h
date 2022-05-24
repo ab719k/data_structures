@@ -15,4 +15,6 @@ public:
     void operator +(string name);
     void operator +=(string name); // Operator Overloading
     void printall();
+    bool find(string val); // find if the value is present in trie
+
 };

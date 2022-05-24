@@ -49,3 +49,10 @@ void Trie::printall()
     }
     cout << endl;
 }
+
+bool Trie::find(string val)
+{
+    cout << "TBD: " << endl;
+ 
+    return false;
+}
