@@ -31,3 +31,5 @@ endif()
 # the project's entire directory structure.
 add_subdirectory (subarray)
 add_subdirectory (stock_gain)
+
+add_executable (missing_element missing_element.c)
