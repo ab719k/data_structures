@@ -34,4 +34,4 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 add_executable (ordered_sets ordered_sets.cpp)
 add_executable (my_queue my_queue.cpp)
-
+add_executable (my_rand my_rand.cpp)
