@@ -16,7 +16,7 @@ if (CMAKE_VERSION VERSION_LESS 3.0)
   set(PROJECT_VERSION "${EXE_VERSION_STRING}")
 else()
   cmake_policy(SET CMP0048 NEW)
-  project (circular_bfr VERSION "${EXE_VERSION_STRING}" LANGUAGES C)
+  project (circular_bfr VERSION "${EXE_VERSION_STRING}" LANGUAGES C CXX)
 endif()
 
 #specify C standard

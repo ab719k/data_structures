@@ -3,11 +3,10 @@
 #include <set>
 #include <vector>
 #include <iterator>
-
+#include <time.h>
+#include <stdio.h>  
 
 using namespace std;
-
-
 /*
 Few details about set in c++
     The set stores the elements in sorted order.
@@ -17,6 +16,7 @@ Few details about set in c++
     The values in a set are unindexed.
 
 */
+
 int main(int argc, char *argv[])
 {
 
