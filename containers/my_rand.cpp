@@ -1,4 +1,6 @@
-/* rand example: guess the number */
+/* 
+random number generator example: 
+*/
 #include <stdio.h>      /* printf, scanf, puts, NULL */
 #include <stdlib.h>     /* srand, rand */
 #include <time.h>       /* time */
@@ -19,7 +21,6 @@ int get_seed()
     int sec = std::atoi(__TIME__ + 6);
     return 10000 * hour + 100 * min + sec;
 }
-
 
 //Make the class singleton at some point
 class MainParam{
