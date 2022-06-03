@@ -1,6 +1,8 @@
 Given an unsorted array A of size N that contains only non-negative integers, find a continuous sub-array which adds to a given number S.
 In case of multiple subarrays, return the subarray which comes first on moving from left to right.
 
+
+```
 Example 1:
 Input:
 N = 5, S = 12
@@ -9,4 +11,16 @@ Output: 2 4
 Explanation: The sum of elements from 2nd position to 4th position is 12.
 
 ```
+
+Next problem will be if the array has -eve integers
+
+```
+Example 1:
+Input:
+N = 5
+A[] = {1,-2,3,7,-5}
+Explanation: The maxium sum of subarray is 3+7.
+
+```
+
 

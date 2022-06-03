@@ -4,6 +4,7 @@ random number generator example:
 #include <stdio.h>      /* printf, scanf, puts, NULL */
 #include <stdlib.h>     /* srand, rand */
 #include <time.h>       /* time */
+#include <string.h>
 #include <unistd.h>
  #include <getopt.h>
 
@@ -19,6 +20,7 @@ int get_seed()
     int hour = std::atoi(__TIME__);
     int min = std::atoi(__TIME__ + 3);
     int sec = std::atoi(__TIME__ + 6);
+    printf("%ll",  10000 * hour + 100 * min + sec);
     return 10000 * hour + 100 * min + sec;
 }
 
@@ -27,26 +29,44 @@ class MainParam{
   private:
     bool initialized;
   public:  
-    uint64_t low;
-    uint64_t high;
+    //int64_t low;
+    //int64_t high;
+    int64_t low;
+    int64_t  high;
+
     uint64_t random_seed;
     uint64_t N;
     string seprator;
     bool debug;
     bool verbose;
+    bool low_negative;
+    bool max_negative;
+
     string filename; 
     
     MainParam()
     {
+        char tmp[64];
+
         initialized = true;
-        low=0;
-        high=UINT64_MAX;
+        //low=INT64_MIN;
+        //high=INT64_MAX;
+        low=INT_MIN;
+        high=INT_MAX;
+
         random_seed = get_seed();
         seprator = '\n';
-        filename = "random100.txt";
         N = 100;
         verbose =false;
         debug = false;
+        low_negative = false;
+        max_negative = false;
+
+        //filename = "random100.txt";        
+        sprintf(tmp, "random_%lu.txt", (time(NULL)));
+        filename = tmp;
+        //cout << "{ Filename : " << filename << "}" << endl;
+
     }
     ~MainParam() 
     {
@@ -85,10 +105,13 @@ static inline int local_process_opt(int argc, char **argv)
         {"seprator", optional_argument, 0,  's' },        
         {"help",    no_argument,           0, 'h' },        
         {"verbose", no_argument,        0,  'v' },        
+        {"Low-negative",    no_argument,     0, 'L' },        
+        {"Max-negative", no_argument,        0,  'H' },        
+
         {0,         0,                 0,  0 }
     };
     while (1) {
-        c = getopt_long(argc, argv, "l:m:n:f:dhs::v?",
+        c = getopt_long(argc, argv, "l:m:n:f:dhs::v?LM",
                 long_options, &option_index);
         if (c == -1) {
             break;
@@ -107,7 +130,7 @@ static inline int local_process_opt(int argc, char **argv)
             case 's':
                 //printf("option '%c' with value '%s'\n", c, optarg);
                 P.seprator=optarg;
-                cout << "{ P.seprator : \"" << P.seprator << "\" }" << endl;
+                //cout << "{ P.seprator : \"" << P.seprator << "\" }" << endl;
                 break;
             case 'd':
                 P.debug=true;
@@ -115,8 +138,17 @@ static inline int local_process_opt(int argc, char **argv)
             case 'v':
                 P.verbose=true;
                 break;
+            case 'L':
+                P.low_negative=true;
+                break;
+            case 'M':
+                P.max_negative=true;
+                break;
             case 'f':
-                P.filename=optarg;
+                if(optarg != NULL) {
+                    P.filename=optarg;
+                    cout << P.filename << endl;
+                }
                 break;
             case 'h':
                 print_help();
@@ -127,12 +159,15 @@ static inline int local_process_opt(int argc, char **argv)
                 break;
         } // switch (c) 
     }
+
+
     if (optind < argc) {
-        printf("non-option ARGV-elements: ");
+        printf("non-option ARGV-elements:");
         while (optind < argc)
             printf("%s ", argv[optind++]);
         printf("\n");
-    }         
+    }
+
     return EXIT_SUCCESS;
 }
 
@@ -151,9 +186,17 @@ int main (int argc, char *argv[])
     srand (time(NULL));
 
     myfile.open(P.filename);
-    uint64_t value = 0;
+    int64_t value = 0;
+    if(P.low_negative) {
+        P.low=(-1)*P.low;
+        cout << "{ P.low = " << P.low << "}" << endl;
+    }
+    if(P.max_negative) {
+        P.high=(-1)*P.high;
+        cout << "{ P.high = " << P.high << "}" << endl;
+    }    
     for(uint64_t i=0; i<P.N; i++) {
-        value = P.low + rand() % (P.high - P.low);
+        value = P.low + rand() % (P.high-P.low);;
         if(P.verbose) {
             cout << value << P.seprator;
         }

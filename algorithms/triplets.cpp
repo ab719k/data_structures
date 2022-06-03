@@ -34,6 +34,7 @@ void countTriplet(int arr[], int n)
         printf("%d", arr[i]);
     }
 }
+#endif
 
 void countTripletinS(unordered_set<int> *S)
 {
@@ -43,7 +44,6 @@ void countTripletinS(unordered_set<int> *S)
         printf("%d", *itr);
     }
 }
-#endif
 
 void calculate_average(unordered_set<int> S);
 
@@ -68,12 +68,41 @@ int main(int argc, char *argv[])
     unordered_set<int> us;
     set<int> S;
     int in;
-    while(cin >> in) 
+    int sum = 10;
+
+    if(argc == 2) {
+        sum = atoi(argv[1]);
+    } else {
+        cin >> sum;
+    }
+
+    while(cin >> in)  
     {
         S.insert(in);
         us.insert(in);
     }
-    calculate_average(us);
+
+    set<int>::iterator itrS;
+
+    cout << "Print Set:" << endl;
+    for(itrS = S.begin(); itrS != S.end() ; ++itrS)  {
+        cout << *itrS << " ";
+    }
+    cout << endl;
+
+    cout << "List Reverse: ";
+    for(itrS = S.end(), --itrS; itrS != S.begin() ; itrS--)  {
+        cout << *itrS << " ";
+    }
+    cout << endl;
+
+    set<int>::iterator l,r;
+    l = S.begin();
+    r = S.end();
+
+
+
+    //calculate_average(us);
 //    countTriplet(A,n);
 //    countTripletinS(&S);
 
