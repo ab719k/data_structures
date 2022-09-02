@@ -10,6 +10,7 @@ static inline void display_menu()
 {
     cout << "Menu" << endl; 
     cout << "i: Insert Name" << endl;
+    cout << "d: Delete Name" << endl;
     cout << "p: Print Tree" << endl;
     cout << "f: Find a Name" << endl;
     cout << "x: Exit" << endl;
@@ -57,6 +58,12 @@ int main(int argc, char *argv[])
                 cin >> name;
                 cout << " You entered " << name << endl;
                 T.insert(name);
+                break;
+            case 'd':
+                cout << "Enter word: ";
+                cin >> name;
+                cout << " You entered " << name << endl;
+                T.remove(name);
                 break;
             case 'p':
                 cout << "The current tree is : " << endl;

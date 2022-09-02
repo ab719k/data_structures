@@ -8,9 +8,12 @@ using namespace std;
 class Node {
     private:    
         vector<string> L;
+        int count=0;
+
     public:    
         Node(vector<string> name);
         Node(string first);
+
         void operator =(vector<string> source);
         
         Node operator +(string name);

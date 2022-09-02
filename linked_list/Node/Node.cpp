@@ -3,8 +3,6 @@
 #include "Node.h"
 #include <algorithm>
 
-
-
 Node::Node(vector<string> V) 
 {
     if(this->L.size() > 0) {
@@ -54,7 +52,7 @@ Node Node::operator +(string name)
     return L;
 }
 
-void Node::operator +=(string name) 
+Node Node::operator +=(string name) 
 {
     //L=
 }
@@ -63,9 +61,9 @@ void Node::printall()
 {
     cout << "The count is " << this->count << endl;
     cout << "Output: ";
-    for(int i = 0; i < g1.size(); i++) 
+    for(int i = 0; i < this->count; i++) 
     {
-        cout << g1[i] << ' ';
+        cout << i << ' ';
     }
     cout << endl;
 }

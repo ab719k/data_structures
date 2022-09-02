@@ -165,7 +165,6 @@ void Tree::print(int order)
 
 void Tree::remove(Node *root)
 {
-
     return;
 }
 
@@ -188,7 +187,6 @@ Node* Tree::get_parent(string name, bool *found)
     while(cont) {
         if(p->l)
         {
-
             cmp = name.compare(p->l->name);
             if(cmp == 0) {
                 *found=true;
@@ -204,8 +202,7 @@ Node* Tree::get_parent(string name, bool *found)
         }
     }
     
-
-    return 
+    return p;
 }
 
 bool Tree::is_leaf(Node *node)
