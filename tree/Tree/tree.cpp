@@ -90,6 +90,23 @@ Node* Tree::delete_node(Node *p, string name) {
     return p;
 }
 
+Node* remove_node(Node *p, string name)
+{
+    auto cmp=p->name.compare(name);
+    
+     if(!cmp) {
+        // Found the node to delete
+        //delete t;
+        if(p->l) {
+            
+        } 
+        if(1)  {
+            printf("%s", name.c_str());
+        }
+    }
+
+}
+
 void Tree::remove(string name)
 {
     Node *t;
