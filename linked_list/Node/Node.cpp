@@ -55,6 +55,8 @@ Node Node::operator +(string name)
 Node Node::operator +=(string name) 
 {
     //L=
+     this.push_back(name);
+     return 
 }
 
 void Node::printall()

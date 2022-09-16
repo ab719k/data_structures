@@ -1,14 +1,19 @@
 #include "trie.h"
 
+Trie::Trie() 
+{
+    this->count = 0;
+}
+
 Trie::Trie(vector<string> name) 
 {
     this->g1 = name;
     this->count = g1.size();
 }
 
-Trie::Trie(string first) 
+Trie::Trie(string name) 
 {
-    this->g1.push_back(first);
+    this->g1.push_back(name);
     this->count = g1.size();
 }
 
@@ -27,16 +32,17 @@ void Trie::operator =(vector<string> source)
     this->count = g1.size();
 }
 
-void Trie::operator +(string name) 
+/*void Trie::operator +(string name) 
 {
     this->g1.push_back(name);
     this->count++;
-}
+}*/
 
-void Trie::operator +=(string name) 
+Trie& Trie::operator +=(string name) 
 {
     this->g1.push_back(name);
     this->count++;
+    return *this;
 }
 
 void Trie::printall()
