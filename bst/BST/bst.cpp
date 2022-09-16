@@ -1,5 +1,5 @@
 #include "bst.h"
-#define COUNT 10
+
 using namespace std;
 
 BST::BST(int x)
@@ -66,7 +66,6 @@ bool BST::find(int x)
 
 }
 
-
 void inorder_print(Node *p)
 {
     if(p==NULL) return;
@@ -75,8 +74,27 @@ void inorder_print(Node *p)
     inorder_print(p->r);
 }
 
+void preorder_print(Node *p)
+{
+    if(p==NULL) return;
+    printf("%d ", p->v);
+    inorder_print(p->l);
+    inorder_print(p->r);
+}
+
+void postorder_print(Node *p)
+{
+    if(p==NULL) return;
+    printf("%d ", p->v);
+    inorder_print(p->l);
+    inorder_print(p->r);
+}
+
+
+// from geeksforgeeks
 void print2DUtil(Node *root, int space)
 {
+    int COUNT=10;
     // Base case=
     if (root == NULL)
         return;
@@ -84,13 +102,11 @@ void print2DUtil(Node *root, int space)
     space+=COUNT;
     // Process right child first
     print2DUtil(root->r , space);
-    // Print current node after space
-    // count
+    // Print current node after space count
     cout<<endl;
     for (int i = COUNT; i < space; i++)
         cout<<" ";
     cout<<root->v<<"\n";
-
     // Process left child
     print2DUtil(root->l, space);
 }
