@@ -46,7 +46,7 @@ void print_values(meas_t *src)
     printf("scan_mode: %d", src->scan_mode);  
 }
 
-int main(int argc, char *argv)
+int main(int argc, char *argv[])
 {
     // Create M:N thread, M writer, N reader.
     // Check how long does it take for them to fill the buffer
@@ -55,7 +55,6 @@ int main(int argc, char *argv)
      meas_t *outMVal;
     cbuf_reset(CBfr);
     char in=0;
-
     while(in != 'x'){
         in=get_input_char();
         switch(in) 
@@ -65,7 +64,10 @@ int main(int argc, char *argv)
                break; 
             case 'r':
                 outMVal = cbuf_get(CBfr);
-                print_values(outMVal);
+                if(outMVal != NULL)
+                    print_values(outMVal);
+                else 
+                printf("Buffer is empty\n");
             case 'w':
                 printf("Write values\n");
                 get_values(MVal);
@@ -84,6 +86,7 @@ int main(int argc, char *argv)
                 printf("Bye\n");
                 break;
             default:
+                printf("%c", in);
                 break;
         }
         printf("\n");
